@@ -1,0 +1,181 @@
+---
+layout: dashboard
+---
+
+<div class="container">
+    <div class="sidebar">
+        <a href="/" class="site-logo">
+            <img src="img/logo.png" alt="Bad Habits">
+        </a>
+        <div class="sidebar-menu">
+            <h3 class="sidebar-menu__title">Components</h3>
+            <ul class="sidebar-menu__list">
+                <li><a href="#">Overview</a></li>
+                <li><a href="/">Order History</a></li>
+                <li class="active"><a href="forms.html">Forms</a></li>
+                <li><a href="cards.html">Card &amp; Modalbox</a></li>
+                <li><a href="#">Customer</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="mainbar">
+        <div class="page-header">
+            <ul class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Next</a></li>
+            </ul>
+            <h1 class="page-title">Forms</h1>
+        </div>
+        <div class="page-body">
+            <div class="row">
+                <div class="col col--8">
+                    <fieldset>
+                        <legend>Fieldset</legend>
+                        <div class="form-group">
+                            <label class="form-label form-label--required">Text input</label>
+                            <div class="form-input">
+                                <input type="text" class="form-control">
+                            </div>
+                            <span class="help-block">Lorem ipsum dolor sit amet, <a href="#">consectetur adipisicing</a> elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua.</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label form-label--required">Loading input</label>
+                            <div class="form-input form-input--loading">
+                                <input type="text" class="form-control">
+                            </div>
+                            <span class="help-block">Lorem ipsum dolor sit amet, <a href="#">consectetur adipisicing</a> elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua.</span>
+                        </div>
+                        <div class="form-group form-group--error">
+                            <label class="form-label">Error input</label>
+                            <div class="form-input">
+                                <input type="email" class="form-control">
+                            </div>
+                            <span class="help-block">Error message</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Select</label>
+                            <div class="form-input">
+                                <select class="form-control" data-select>
+                                    <option>Option #1</option>
+                                    <option>Option #2</option>
+                                    <option>Option #3</option>
+                                    <option>Option #4</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Multiple Select</label>
+                            <div class="form-input">
+                                <select class="form-control" multiple data-select>
+                                    <option>Option #1</option>
+                                    <option>Option #2</option>
+                                    <option>Option #3</option>
+                                    <option>Option #4</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Image Upload</label>
+                            <div class="form-input">
+                                <div class="image-input">
+                                    <div class="row">
+                                        <div class="col col--3">
+                                            <div class="image-input__uploader">
+                                                <div class="image-input__uploadbox">
+                                                    <label for="addImage_1">Add Image</label>
+                                                    <input type="file" id="addImage_1">
+                                                </div>
+                                                <div class="image-input__preview" id="warung_info_preview_1">
+                                                    <div class="image-input__img" id="warung_info_preview_url_1">
+                                                      <img src="img/logo.png" alt="">
+                                                    </div>
+                                                </div>
+                                                <a href="#" class="close">&times;</a>
+                                            </div>
+                                        </div>
+                                        <div class="col col--3">
+                                            <div class="image-input__uploader">
+                                                <div class="image-input__uploadbox">
+                                                    <label for="addImage_2">Add Image</label>
+                                                    <input type="file" id="addImage_2">
+                                                </div>
+                                                <div class="image-input__preview">
+                                                    <div class="spinner"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col col--3">
+                                            <div class="image-input__uploader">
+                                                <div class="image-input__uploadbox">
+                                                    <label for="addImage_3">Add Image</label>
+                                                    <input type="file" id="addImage_3">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col col--3">
+                                            <div class="image-input__uploader">
+                                                <div class="image-input__uploadbox">
+                                                    <label for="addImage_4">Add Image</label>
+                                                    <input type="file" id="addImage_4">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="help-block">JPG &amp; PNG, max 2MB</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Textarea</label>
+                            <div class="form-input">
+                                <textarea class="form-control" rows="3"></textarea>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="col col--4">
+                    <fieldset>
+                        <legend>Options</legend>
+                        <div class="form-group">
+                            <label class="form-label">Radio</label>
+                            <div class="radio radio--inline">
+                                <label>
+                                    <input type="radio" name="n" id="categoryModalPublished" chacked>
+                                    <span>Ya</span>
+                                </label>
+                            </div>
+                            <div class="radio radio--inline">
+                                <label>
+                                    <input type="radio" name="n" checked>
+                                    <span>Tidak</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Checkbox</label>
+                            <div class="checkbox checkbox--inline">
+                                <label>
+                                    <input type="checkbox">
+                                    <span>Ya</span>
+                                </label>
+                            </div>
+                            <div class="checkbox checkbox--inline">
+                                <label>
+                                    <input type="checkbox">
+                                    <span>Tidak</span>
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="form-action">
+                <button class="btn btn--default">Reset</button>
+                <button class="btn btn--blue">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

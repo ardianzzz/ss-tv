@@ -1,0 +1,280 @@
+body {
+	background: #eee;
+
+
+}
+
+
+.site-header {
+	position:fixed;
+	top:0;
+	right: 0;
+	left: 0;
+	background:#000;
+    background-image: linear-gradient(to bottom, lighten(#000, 12%) 0%, #000 100%);
+	z-index: 999;
+	box-shadow: 0 .1rem .1rem rgba(0,0,0,0.04);
+
+	&__logo {
+		display: block;
+		float: left;
+		line-height: 3.2rem;
+		padding:.8rem 0;
+		color: #fff;
+		text-decoration: none !important;
+		font-weight: 500;
+		font-size: 2rem;
+		font-style: italic;
+		text-transform: uppercase;
+	}
+}
+
+.site-logo {
+	display: block;
+	text-decoration: none !important;
+	outline: 0 !important;
+	margin:0 0 2.4rem;
+	padding:0 0 2.4rem;
+	border-bottom: solid .1rem #eee;
+	overflow: hidden;
+
+	img,svg {
+		display: block;
+		max-height: 8rem;
+	}
+}
+
+
+
+
+.sidebar {
+    position: fixed;
+    top:0;
+    bottom: 0;
+    width: 22rem;
+    z-index: 998;
+    padding: 4.8rem 0;
+    border-right:solid .1rem #e5e5e5;
+}
+
+.sidebar-menu {
+	&__title {
+		font-size: 1rem;
+		color: #777;
+		text-transform: uppercase;
+		letter-spacing: .12rem;
+		font-weight: 400;
+		padding:0 0 0 1.2rem;
+	}
+
+	&__list {
+		list-style: none;
+		margin:0 0 2.4rem;
+		padding:0 1.6rem 0 0;
+
+		li {
+			margin:0 0 .4rem;
+			a {
+				display: block;
+				line-height: 2.4rem;
+				padding:.4rem 1.2rem;
+				border-radius: .3rem;
+				text-decoration: none !important;
+				color: #1ca8dd;
+
+				&:hover,&:focus {
+					background:#f7f7f7;
+				}
+			}
+
+			&.active {
+				a {
+					background:#1ca8dd;
+					color: #fff;
+				}
+			}
+		}
+	}
+}
+
+
+.mainbar {
+	margin:0 0 4.8rem 24.4rem;
+}
+
+
+.page-header {
+	padding:2.4rem 0 .8rem;
+	margin:0 0 1.2rem;
+	border-bottom: solid .1rem #e5e5e5;
+	background: #fff;
+	@extend .clearfix;
+}
+
+.chart-filter {
+	padding:0 0 1.6rem;
+	@extend .clearfix;
+
+	.form-input--daterange {
+		width: 28rem;
+	}
+}
+
+.page-title {
+	margin:0;
+	font-size: 2.4rem;
+	line-height: 3.2rem;
+	font-weight: 400;
+}
+.page-body {
+	padding:1.2rem 0;
+}
+
+.card {
+	margin:0 0 1.2rem;
+	display: block;
+	background: #fff;
+	border:solid .1rem #dcdcdc;
+	box-shadow: 0 .1rem .1rem rgba(0,0,0,0.04);
+
+
+	&__header {
+		border-bottom:solid .1rem #eee;
+		display: table;
+		width:100%;
+	}
+
+	&__title {
+		font-size: 1.4rem;
+		font-weight: 700;
+		margin:0;
+		display: table-cell;
+		width: 100%;
+		vertical-align: middle;
+		padding:.8rem 1.2rem;
+		line-height: 2.4rem;
+	}
+
+	&__btn {
+		display: table-cell;
+
+		a {
+			display: block;
+			line-height: 2.4rem;
+			padding:.8rem;
+			float: left;
+			border-left: solid .1rem #eee;
+
+			svg {
+				display: block;
+				width: 2.4rem;
+				height: 2.4rem;
+				fill:#888;
+			}
+
+			&.active {
+				svg {
+					fill:#FFCC00;
+				}
+			}
+
+		}
+	}
+
+	&__body {
+		padding:1.2rem;
+		height: 30rem;
+	}
+
+	.table {
+		margin:0;
+	}
+
+}
+
+
+
+.login-wrapper {
+
+}
+
+.form-login {
+	max-width: 32rem;
+	margin:24rem auto 0;
+	margin:24vh auto 0;
+	padding:1.6rem;
+
+
+	.org-logo {
+		margin:0 0 3.2rem;
+
+		&__img {
+			width: 8rem;
+			height: 8rem;
+			background-size:cover;
+			background-position: center;
+			border-radius: 50%;
+			border:solid .1rem #e5e5e5;
+			box-shadow: 0 .1rem .1rem rgba(0,0,0,0.04);
+			margin:0 auto;
+		}
+	}
+
+	.form-label {
+		position: absolute;
+		z-index: -1;
+		opacity: 0;
+	}
+
+	.form-group {
+		margin:0;
+	}
+
+
+	.form-control {
+		margin:0 0 -.1rem;
+		padding:.8rem;
+		border-radius: 0;
+		font-size: 1.6rem;
+
+
+		&:focus {
+			position:relative;
+		}
+
+		&:first-of-type {
+			border-radius: .3rem .3rem 0 0;
+		}
+
+		&:last-of-type {
+			border-radius: 0 0 .3rem .3rem;
+		}
+	}
+
+}
+
+
+.credit {
+	padding:.8rem;
+	display: block;
+	font-size: 1rem;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 9999;
+	color: #aaa;
+	line-height: 1.6rem;
+
+	svg {
+		display: block;
+		float: left;
+		margin:0 .6rem 0 0;
+		width: 1.6rem;
+		height: 1.6rem;
+		fill:#aaa;
+	}
+
+	a {
+		color: #888;
+	}
+}

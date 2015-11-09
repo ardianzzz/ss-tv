@@ -1,0 +1,566 @@
+---
+layout: dashboard
+---
+
+
+
+<div class="sidebar">
+    <ul class="sidebar-menu">
+        <li><a href="tv.html">TV-sample</a></li>
+        <li><a href="tv-mofu.html">MOFU</a></li>
+    </ul>
+</div>
+<div class="tv">
+    <div class="tv-header">
+        <h1 class="tv-header__title">
+            MOFU
+        </h1>
+        <div class="tv-header__btn left">
+            <a href="#" data-toggle="sidebar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+                    <path d="M96 241h320v32H96zM96 145h320v32H96zM96 337h320v32H96z" />
+                </svg>
+            </a>
+        </div>
+    </div>
+    <div class="tv-body">
+        <div class="gridster">
+            <ul>
+                <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3 class="card__title">Revenue This Month</h3>
+                        </div>
+                        <div class="card__body">
+                            <div class="scoreboard">
+                                <div class="scoreboard__score">2.339.893K</div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3 class="card__title">Revenue Today</h3>
+                        </div>
+                        <div class="card__body">
+                            <div class="scoreboard">
+                                <div class="scoreboard__score">527.113K</div>
+                                <div class="scoreboard__small">
+                                    32%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3 class="card__title">Runrate Revenue</h3>
+                        </div>
+                        <div class="card__body">
+                            <div class="scoreboard">
+                                <div class="scoreboard__score">14.039.358K</div>
+                                <div class="scoreboard__small">
+                                    10%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3 class="card__title">Target Revenue</h3>
+                        </div>
+                        <div class="card__body">
+                            <div class="scoreboard">
+                                <div class="scoreboard__score">18.251.223K</div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                
+                <li data-row="4" data-col="1" data-sizex="4" data-sizey="2">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3 class="card__title">Return Of Investment</h3>
+                        </div>
+                        <div class="card__body">
+                            <div id="chart_2" style="height:100%"></div>
+                        </div>
+                    </div>
+                </li>
+
+
+                 <li data-row="4" data-col="1" data-sizex="4" data-sizey="2">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3 class="card__title">CLV CAC CPA</h3>
+                        </div>
+                        <div class="card__body">
+                            <div id="chart_3" style="height:100%"></div>
+                        </div>
+                    </div>
+                </li>
+
+                <li data-row="5" data-col="1" data-sizex="4" data-sizey="3">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3 class="card__title">Funnel</h3>
+                        </div>
+                        <div class="card__body">
+                            <div id="sankey" style="height:100%"></div>
+
+                            <div class="card-scoreboard bottom">
+                                <div class="card-scoreboard__content">
+                                    <div class="scoreboard">
+                                        <div class="scoreboard__label">
+                                            New Visitor
+                                        </div>
+                                        <div class="scoreboard__score">907.414</div>
+                                        <div class="scoreboard__small">
+                                            100%
+                                        </div>
+
+                                    </div>
+
+                                    <div class="scoreboard">
+                                        <div class="scoreboard__label">
+                                            Register
+                                        </div>
+                                        <div class="scoreboard__score">74.153</div>
+                                        <div class="scoreboard__small">
+                                        8.17%
+                                        </div>
+                                    </div>
+
+                                     <div class="scoreboard">
+                                        <div class="scoreboard__label">
+                                        First Buy
+                                        </div>
+                                        <div class="scoreboard__score">52.281</div>
+                                        <div class="scoreboard__small">
+                                        70.50%
+                                        </div>
+                                    </div>
+
+
+                                      <div class="scoreboard">
+                                        <div class="scoreboard__label">
+                                        Repeat Buy
+                                        </div>
+                                        <div class="scoreboard__score">12.856</div>
+                                        <div class="scoreboard__small">
+                                        24.59%
+                                        </div>
+                                    </div>
+
+                                     <div class="scoreboard">
+                                        <div class="scoreboard__label">
+                                        Loyal
+                                        </div>
+                                        <div class="scoreboard__score">6.678</div>
+                                        <div class="scoreboard__small">
+                                        51.94%
+                                        </div>
+                                    </div>
+                                     <div class="scoreboard">
+                                        <div class="scoreboard__label">
+                                        Referrer
+                                        </div>
+                                        <div class="scoreboard__score">2.817</div>
+                                        <div class="scoreboard__small">
+                                        42.18%
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                </li>
+                <li data-row="6" data-col="1" data-sizex="4" data-sizey="2">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3 class="card__title">Funnel</h3>
+                        </div>
+                        <div class="card__body">
+                            <div id="chart_x" style="height:100%"></div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+$('[data-toggle="sidebar"]').click(function() {
+    $('body').toggleClass('sidebar-open');
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//sankey
+
+var units = "Users";
+
+var margin = {
+        top: 24,
+        right: 10,
+        bottom: 10,
+        left: 10
+    },
+    width = 1024 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+var formatNumber = d3.format(",.0f"), // zero decimal places
+    format = function(d) {
+        return formatNumber(d) + " " + units;
+    },
+    color = d3.scale.category20();
+
+// append the svg canvas to the page
+var svg = d3.select("#sankey").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform",
+        "translate(" + margin.left + "," + margin.top + ")");
+
+// Set the sankey diagram properties
+var sankey = d3.sankey()
+    .nodeWidth(12)
+    .nodePadding(32)
+    .size([width, height]);
+
+var path = sankey.link();
+
+// load the data
+d3.json("data/sankey.json", function(error, graph) {
+
+
+
+    sankey
+        .nodes(graph.nodes)
+        .links(graph.links)
+        .layout(32);
+
+
+    graph.nodes[8].y = 240;
+    graph.nodes[9].y = 120;
+    graph.nodes[10].y = 240;
+    graph.nodes[11].y = 120;
+    graph.nodes[12].y = 240;
+
+
+    // add in the links
+    var link = svg.append("g").selectAll(".link")
+        .data(graph.links)
+        .enter().append("path")
+        .attr("class", "link")
+        .attr("d", path)
+        .style("stroke-width", function(d) {
+            return Math.max(1, d.dy);
+        })
+        .sort(function(a, b) {
+            return b.dy - a.dy;
+        });
+
+    // add the link titles
+    link.append("title")
+        .text(function(d) {
+            return d.source.name + " → " +
+                d.target.name + "\n" + format(d.value);
+        });
+
+
+
+
+    //graph.links[5].target.x = 800;
+
+
+
+    // add in the nodes
+    var node = svg.append("g").selectAll(".node")
+        .data(graph.nodes)
+        .enter().append("g")
+        .attr("class", "node")
+        .attr("transform", function(d) {
+            return "translate(" + d.x + "," + d.y + ")";
+        })
+        .call(d3.behavior.drag()
+            .origin(function(d) {
+                return d;
+            })
+            .on("dragstart", function() {
+                this.parentNode.appendChild(this);
+            })
+            .on("drag", dragmove));
+
+    // add the rectangles for the nodes
+    node.append("rect")
+        .attr("height", function(d) {
+            return d.dy;
+        })
+        .attr("width", sankey.nodeWidth())
+        .style("fill", function(d) {
+            return d.color = color(d.name.replace(/ .*/, ""));
+        })
+        .style("stroke", function(d) {
+            return d3.rgb(d.color).darker(2);
+        })
+        .append("title")
+        .text(function(d) {
+            return d.name + "\n" + format(d.value);
+        });
+
+    // add in the title for the nodes
+    node.append("text")
+        .attr("x", -6)
+        .attr("y", function(d) {
+            return d.dy / 2;
+        })
+        .attr("dy", ".35em")
+        .attr("text-anchor", "end")
+        .attr("transform", null)
+        .text(function(d) {
+            return d.name;
+        })
+        .filter(function(d) {
+            return d.x < width / 2;
+        })
+        .attr("x", 6 + sankey.nodeWidth())
+        .attr("text-anchor", "start");
+
+    // the function for moving the nodes
+    function dragmove(d) {
+        d3.select(this).attr("transform",
+            "translate(" + d.x + "," + (
+                d.y = Math.max(0, Math.min(height - d.dy, d3.event.y))
+            ) + ")");
+        sankey.relayout();
+        link.attr("d", path);
+    }
+});
+
+
+
+
+
+
+
+var datacsv = 'data/funnel.csv'; //datasource
+
+var chart_1 = c3.generate({
+    bindto: '#chart_x',
+
+    legend: {
+        show: true
+    },
+    data: {
+        x: 'Date', //axis index
+        url: datacsv,
+        type: 'spline'
+    },
+    bar: {
+        width: {
+            ratio: 0.75 // this makes bar width 50% of length between ticks
+        }
+        // or
+        //width: 100 // this makes bar width 100px
+    },
+
+    axis: {
+        x: {
+            type: 'timeseries',
+
+            tick: {
+                format: '%d'
+            }
+        },
+
+        y: {
+            show: true,
+            tick: {
+                format: d3.format("s")
+            }
+        }
+    },
+    grid: {
+        x: {
+            show: false,
+
+        },
+
+        y: {
+            fit: true,
+            show: true,
+            ticks: 3,
+        },
+
+
+    },
+
+});
+
+
+
+
+
+
+
+
+var datacsv2 = 'data/roi.csv'; //datasource
+
+var chart_2 = c3.generate({
+    bindto: '#chart_2',
+
+    legend: {
+        show: true
+    },
+    data: {
+        x: 'Date', //axis index
+        url: datacsv2,
+        type: 'spline',
+    },
+
+    zoom: {
+        enabled: false
+    }, 
+    bar: {
+        width: {
+            ratio: 0.75 // this makes bar width 50% of length between ticks
+        }
+        // or
+        //width: 100 // this makes bar width 100px
+    },
+
+    axis: {
+        x: {
+            type: 'timeseries',
+
+            tick: {
+                format: '%d'
+            }
+        },
+
+        y: {
+            show: true,
+            tick: {
+                format: d3.format("s")
+            }
+        }
+    },
+    grid: {
+        x: {
+            show: false,
+
+        },
+
+        y: {
+            fit: true,
+            show: true,
+            ticks: 3,
+        },
+
+
+    },
+
+});
+
+
+var datacsv3 = 'data/clv-cac.csv'; //datasource
+
+var chart_2 = c3.generate({
+    bindto: '#chart_3',
+
+    legend: {
+        show: true
+    },
+    data: {
+        x: 'Date', //axis index
+        url: datacsv3,
+        type: 'spline',
+    },
+
+    zoom: {
+        enabled: false
+    }, 
+    bar: {
+        width: {
+            ratio: 0.75 // this makes bar width 50% of length between ticks
+        }
+        // or
+        //width: 100 // this makes bar width 100px
+    },
+
+    axis: {
+        x: {
+            type: 'timeseries',
+
+            tick: {
+                format: '%d'
+            }
+        },
+
+        y: {
+            show: true,
+            tick: {
+                format: d3.format("s")
+            }
+        }
+    },
+    grid: {
+        x: {
+            show: false,
+
+        },
+
+        y: {
+            fit: true,
+            show: true,
+            ticks: 3,
+        },
+
+
+    },
+
+});
+
+
+
+
+
+var w = $('.gridster').width();
+var h = $('.gridster').height();
+var w2 = w / 4;
+var h2 = h / 10;
+
+$(".gridster ul").gridster({
+    widget_margins: [0, 0],
+    widget_base_dimensions: [w2, h2],
+    resize: {
+        enabled: false
+    }
+}).data('gridster').disable();
+
+$(window).resize(function() {
+    location.reload();
+});
+</script>
+
+
+

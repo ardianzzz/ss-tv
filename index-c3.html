@@ -1,0 +1,246 @@
+---
+layout: dashboard
+---
+
+
+
+    <div class="page-header">
+    <div class="container">
+        <h1 class="page-title">Sale Stock BI</h1>
+    </div>
+</div>
+<div class="page-body">
+    <div class="container">
+        <div class="card">
+            <div class="card__header">
+                <h3 class="card__title">Total purchase</h3>
+                <div class="card__btn">
+                <a href="#" class="add-favorite" data-toggle="tooltip" title="Add to Dashboard">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><path d="M480 200H308.52L256.03 32l-52.51 168H32l138.946 104.21L116 480l140-112 140 112-54.927-175.805"/></svg>
+                </a>
+                </div>
+            </div>
+
+            <div class="card__body">
+                <div class="page-filter">
+                        <div class="pull-left">
+                            <select class="form-control" data-select style="width:auto;">
+                                <option>#Option 1</option>
+                                <option>#Option 2</option>
+                                <option>#Option 3</option>
+                            </select>
+                            <input type="text" class="form-control" placeholder="Keyword&hellip;" style="width:auto">
+                            <button class="btn btn--blue">Submit</button>
+                        </div>
+                        <div class="pull-right">
+                            <div class="form-input form-input--daterange">
+                                <input type="text" class="form-control" id="datePickerStart" placeholder="Tanggal awal">
+                                <input type="text" class="form-control" id="datePickerEnd" placeholder="Tanggal akhir">
+                                <script type="text/javascript">
+                                var picker = new Pikaday({
+                                    field: document.getElementById('datePickerStart'),
+                                    onSelect: function() {
+                                        picker2.setMinDate(this.getDate());
+                                    }
+                                });
+                                var picker2 = new Pikaday({
+                                    field: document.getElementById('datePickerEnd'),
+                                    onSelect: function() {
+                                        picker.setMaxDate(this.getDate());
+                                    }
+                                });
+                                </script>
+                            </div>
+                        </div>
+
+                </div>
+                <div class="chart-box">
+                    <div class="chart-content" id="chart_1" style="height:300px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col col--4">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Active member</h3>
+                    </div>
+                    <div class="card__body">
+                        <div id="chart_2" style="height:160px"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col col--4">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Registered customer</h3>
+                    </div>
+                    <div class="card__body">
+                        <div id="chart_3" style="height:160px"></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col col--4">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Loyality customer</h3>
+                    </div>
+                    <div class="card__body">
+                        <div id="chart_4" style="height:160px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div id="chart_1_table"></div>
+        </div>
+    </div>
+    <script>
+$(document).ready(function() {
+
+
+    var datacsv = 'data/line.csv'; //datasource
+
+    var chart_1 = c3.generate({
+        bindto: '#chart_1',
+
+
+        data: {
+            x: 'Date', //axis index
+            url: datacsv,
+            type: 'area'
+        },
+
+        axis: {
+            x: {
+                type: 'timeseries',
+
+                tick: {
+                    format: '%d'
+                }
+            }
+        },
+        grid: {
+            x: {
+                show: true,
+
+            },
+
+            y: {
+                 fit: true,
+                show: true,
+            },
+
+
+        },
+
+    });
+
+
+
+    var chart_2 = c3.generate({
+
+        bindto: '#chart_2',
+         legend: {
+        position: 'right'
+    },
+
+        data: {
+            // iris data from R
+            columns: [
+                ['Active', 180],
+                ['Dormant', 120],
+            ],
+
+            type: 'pie'
+        }
+    });
+
+    var chart_3 = c3.generate({
+
+        bindto: '#chart_3',
+      
+        legend: {
+        position: 'right'
+    },
+
+        data: {
+            // iris data from R
+            columns: [
+                ['Registered', 330],
+                ['Unregistered', 120],
+            ],
+
+            type: 'pie'
+        }
+    });
+
+    var chart_4 = c3.generate({
+
+        bindto: '#chart_4',
+       
+         legend: {
+        position: 'right'
+    },
+
+        data: {
+            // iris data from R
+            columns: [
+                ['Repeat', 30],
+                ['First', 120],
+            ],
+
+            type: 'pie'
+        }
+    });
+
+
+    // table data
+    d3.text(datacsv, function(datasetText) {
+        var rows = d3.csv.parseRows(datasetText);
+        var tbl = d3.select("#chart_1_table")
+            .append("table").attr("class", "table");
+
+        // headers
+        tbl.append("thead").append("tr")
+            .selectAll("th")
+            .data(rows[0])
+            .enter().append("th")
+            .text(function(d) {
+                return d;
+            });
+
+        // data
+        tbl.append("tbody")
+            .selectAll("tr").data(rows.slice(1))
+            .enter().append("tr")
+
+        .selectAll("td")
+            .data(function(d) {
+                return d;
+            })
+            .enter().append("td")
+            .text(function(d) {
+                return d;
+            })
+    });
+
+
+
+
+
+
+
+
+});
+</script>
+
+</div>
+</div>
+
+

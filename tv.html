@@ -1,0 +1,502 @@
+---
+layout: dashboard
+---
+
+
+
+<div class="sidebar">
+    <ul class="sidebar-menu">
+        <li><a href="tv.html">TV-sample</a></li>
+        <li><a href="tv-mofu.html">MOFU</a></li>
+    </ul>
+</div>
+
+<div class="tv">
+    <div class="tv-header">
+        <h1 class="tv-header__title">
+        TV Sample
+        </h1>
+        <div class="tv-header__btn left">
+            <a href="#" data-toggle="sidebar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+                    <path d="M96 241h320v32H96zM96 145h320v32H96zM96 337h320v32H96z" />
+                </svg>
+            </a>
+        </div>
+    </div>
+    <div class="tv-body">
+        <div class="gridster">
+            <ul>
+                <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3 class="card__title">Visitor</h3>
+                        </div>
+                        <div class="card__body">
+                            <div class="scoreboard">
+                                <div class="scoreboard__label">Total</div>
+                                <div class="scoreboard__score">14135</div>
+                                <div class="scoreboard__small">
+                                    100%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3 class="card__title">Order</h3>
+                        </div>
+                        <div class="card__body">
+                            <div class="scoreboard">
+                                <div class="scoreboard__label">Kamis, 5&ndash;11&ndash;2015 </div>
+                                <div class="scoreboard__score">3452</div>
+                                <div class="scoreboard__small">
+                                    32%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3 class="card__title">Register</h3>
+                        </div>
+                        <div class="card__body">
+                            <div class="scoreboard">
+                                <div class="scoreboard__label">Kamis, 5&ndash;11&ndash;2015 </div>
+                                <div class="scoreboard__score">345</div>
+                                <div class="scoreboard__small">
+                                    10%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li data-row="2" data-col="1" data-sizex="3" data-sizey="2">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3 class="card__title">Transaction Report</h3>
+                        </div>
+                        <div class="card__body">
+                            <div id="chart_1" style="height:100%"></div>
+                        </div>
+                    </div>
+                </li>
+               <!--  <li data-row="3" data-col="1" data-sizex="3" data-sizey="1">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3 class="card__title">Transaction Report</h3>
+                        </div>
+                        <div class="card__body">
+                            <div id="chart_x" style="height:100%"></div>
+                        </div>
+                    </div>
+                </li> -->
+                <li data-row="4" data-col="1" data-sizex="1" data-sizey="1">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3 class="card__title">Active member</h3>
+                        </div>
+                        <div class="card__body">
+                            <div id="chart_2" style="height:100%"></div>
+                        </div>
+                    </div>
+                </li>
+                <li data-row="4" data-col="1" data-sizex="1" data-sizey="1">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3 class="card__title">Customer status</h3>
+                        </div>
+                        <div class="card__body">
+                            <div id="chart_3" style="height:100%"></div>
+                        </div>
+                    </div>
+                </li>
+                <li data-row="4" data-col="2" data-sizex="1" data-sizey="1">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3 class="card__title">Loyality</h3>
+                        </div>
+                        <div class="card__body">
+                            <div id="funnel" style="height:100%"></div>
+                        </div>
+                    </div>
+                </li>
+                <li data-row="5" data-col="1" data-sizex="3" data-sizey="2">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3 class="card__title">Geo Revenue</h3>
+                        </div>
+                        <div class="card__body">
+                            <div id="map"></div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+
+$('[data-toggle="sidebar"]').click(function () {
+    $('body').toggleClass('sidebar-open');
+    return false;
+});
+
+
+
+
+
+var w = $('.gridster').width();
+var h = $('.gridster').height();
+var w2 = w / 3;
+var h2 = h / 6;
+
+$(".gridster ul").gridster({
+    widget_margins: [0, 0],
+    widget_base_dimensions: [w2, h2],
+    resize: {
+        enabled: false
+    }
+}).data('gridster').disable();
+
+$(window).resize(function() {
+    location.reload();
+});
+
+
+var funnel = c3.generate({
+    bindto: '#funnel',
+    legend: {
+        show: false
+    },
+     tooltip: {
+        show: false
+    },
+
+    data: {
+        x: 'x',
+        columns: [
+            ['x', 'Visitor 12.340 (100%)', 'Register 3103 (30%)', 'First buyer', 'Repeat buyer', 'Loyal buyer', 'Referrer'],
+            ['data1', 12340, 3103, 823, 322, 123, 10],
+        ],
+        types: {
+            data1 : 'bar',
+        },
+    },
+
+  
+    axis: {
+        rotated: true,
+        x: {
+            type: 'category',
+            tick: {
+                rotate: 75,
+                multiline: false
+            },
+            height: 130
+        },
+
+        y: {
+            show : false
+        }
+    }
+});
+
+
+var datacsv = 'data/funnel.csv'; //datasource
+
+var chart_1 = c3.generate({
+    bindto: '#chart_1',
+
+    legend: {
+        show: false
+    },
+    data: {
+        x: 'Date', //axis index
+        url: datacsv,
+        type: 'line'
+    },
+
+    axis: {
+        x: {
+            type: 'timeseries',
+
+            tick: {
+                format: '%d'
+            }
+        },
+
+        y: {
+            show: true,
+        }
+    },
+    grid: {
+        x: {
+            show: false,
+
+        },
+
+        y: {
+            fit: true,
+            show: true,
+            ticks: 3,
+        },
+
+
+    },
+
+});
+
+
+var chart_1 = c3.generate({
+    bindto: '#chart_x',
+
+    legend: {
+        show: false
+    },
+    data: {
+        x: 'Date', //axis index
+        url: datacsv,
+        type: 'bar'
+    },
+     bar: {
+        width: {
+            ratio: 0.75 // this makes bar width 50% of length between ticks
+        }
+        // or
+        //width: 100 // this makes bar width 100px
+    },
+
+    axis: {
+        x: {
+            type: 'timeseries',
+
+            tick: {
+                format: '%d'
+            }
+        },
+
+        y: {
+            show: false,
+        }
+    },
+    grid: {
+        x: {
+            show: false,
+
+        },
+
+        y: {
+            fit: true,
+            show: true,
+            ticks: 3,
+        },
+
+
+    },
+
+});
+
+var chart_2 = c3.generate({
+
+    bindto: '#chart_2',
+
+    data: {
+        // iris data from R
+        columns: [
+            ['Active', 180],
+            ['Dormant', 120],
+        ],
+
+        type: 'pie'
+    },
+
+    //blue
+    color: {
+        pattern: ['#08306b', '#08519c', '#2171b5', '#4292c6', '#6baed6', '#9ecae1', '#c6dbef', '#deebf7', '#f7fbff']
+    }
+
+});
+
+
+var chart_3 = c3.generate({
+
+    bindto: '#chart_3',
+
+
+    data: {
+        // iris data from R
+        columns: [
+            ['Registered', 330],
+            ['Unregistered', 120],
+        ],
+
+        type: 'pie'
+    },
+
+
+    color: {
+        pattern: ['#00441b', '#006d2c', '#238b45', '#41ab5d', '#74c476', '#a1d99b', '#c7e9c0', '#e5f5e0', '#f7fcf5', ]
+    }
+
+});
+
+var chart_4 = c3.generate({
+
+    bindto: '#chart_4',
+
+
+    data: {
+        // iris data from R
+        columns: [
+            ['Repeat', 30],
+            ['First', 120],
+        ],
+
+        type: 'pie'
+    }
+
+
+});
+
+
+// table data
+d3.text(datacsv, function(datasetText) {
+    var rows = d3.csv.parseRows(datasetText);
+    var tbl = d3.select("#chart_1_table")
+        .append("table").attr("class", "table");
+
+    // headers
+    tbl.append("thead").append("tr")
+        .selectAll("th")
+        .data(rows[0])
+        .enter().append("th")
+        .text(function(d) {
+            return d;
+        });
+
+    // data
+    tbl.append("tbody")
+        .selectAll("tr").data(rows.slice(1))
+        .enter().append("tr")
+
+    .selectAll("td")
+        .data(function(d) {
+            return d;
+        })
+        .enter().append("td")
+        .text(function(d) {
+            return d;
+        })
+});
+
+
+
+
+
+
+var width = 1080,
+    height = 480;
+
+var rateById = d3.map();
+
+var quantize = d3.scale.quantize()
+    .domain([0, .15])
+    .range(d3.range(9).map(function(i) {
+        return "q" + i + "-9";
+    }));
+
+var color_domain = [500, 1000, 2000, 4000, 8000, 16000, 32000, 64000]
+  var ext_color_domain = [0, 1000, 2000, 4000, 8000, 16000, 32000, 64000, 128000]
+  var legend_labels = ["<1000", "1000+", "2000+", "4000+", "8000+", "16000+", "32000+", "64000+", ">128000" ]              
+  var color = d3.scale.threshold()
+  .domain(color_domain)
+  .range(['#f7fbff','#deebf7','#c6dbef','#9ecae1','#6baed6','#4292c6','#2171b5','#08519c','#08306b']);
+
+
+var projection = d3.geo.mercator()
+    .scale(1280)
+    .center([118.6, -2])
+    .translate([width / 2, height / 2]);
+
+
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var div = d3.select("#map").append("div")   
+  .attr("class", "maptooltip")               
+  .style("opacity", 0);
+
+var svg = d3.select("#map").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+queue()
+    .defer(d3.json, "data/idmap.json")
+    .defer(d3.tsv, "data/chloropleth.tsv", function(d) {
+        rateById.set(d.ID_1, +d.Order);
+    })
+    .await(ready);
+
+
+
+function ready(error, uk) {
+    if (error) throw error;
+
+    svg.append("g")
+        .attr("class", "counties")
+        .selectAll("path")
+        .data(topojson.feature(uk, uk.objects.adm1).features)
+        .enter().append("path")
+        .style("fill", function(d) {
+            return color(rateById.get(d.properties.ID_1));
+        })
+        .attr("title", function(d) {
+            return d.properties.NAME_2;
+        })
+        .attr("d", path)
+
+    svg.append("path")
+        .datum(topojson.mesh(uk, uk.objects.adm1, function(a, b) {
+            return a !== b;
+        }))
+        .attr("class", "states")
+        .attr("d", path);
+
+
+
+
+
+}
+
+
+
+ var legend = svg.selectAll("g.legend")
+  .data(ext_color_domain)
+  .enter().append("g")
+  .attr("class", "legend");
+
+  var ls_w = 20, ls_h = 20;
+
+  legend.append("rect")
+  .attr("x", 20)
+  .attr("y", function(d, i){ return height - (i*ls_h) - 2*ls_h;})
+  .attr("width", ls_w)
+  .attr("height", ls_h)
+  .style("fill", function(d, i) { return color(d); })
+  .style("opacity", 0.8);
+
+  legend.append("text")
+  .attr("x", 50)
+  .attr("y", function(d, i){ return height - (i*ls_h) - ls_h - 4;})
+  .text(function(d, i){ return legend_labels[i]; });
+
+</script>
+
+

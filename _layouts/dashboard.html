@@ -1,0 +1,175 @@
+<!doctype html>
+<html class="no-js" lang="ID">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="stylesheet" href="css/main.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
+
+
+    <script src="js/jquery-2.1.0.min.js"></script>
+    <script src="js/pikaday.js"></script>
+    <script src="js/plugin.js"></script>
+    <script src="js/d3.min.js"></script>
+    <script src="js/c3.min.js"></script>
+    <script src="js/topo.js"></script>
+    <script src="js/queue.js"></script>
+    <script src="js/sankey.js"></script>
+    <script src="js/gridster.js"></script>
+
+    <script type="text/javascript">
+			function daytime() {
+			      var currentTime = new Date().getHours();
+			      if (0 <= currentTime&&currentTime < 5) {
+			      	$('body').addClass('night');
+			      }
+			      if (5 <= currentTime&&currentTime < 11) {
+			      	$('body').addClass('morning');
+			      }
+			      if (11 <= currentTime&&currentTime < 16) {
+			      	$('body').addClass('day');
+			      }
+			      if (16 <= currentTime&&currentTime < 22) {
+			      	$('body').addClass('evening');
+			      }
+			      if (22 <= currentTime&&currentTime <= 24) {
+			      	$('body').addClass('night');
+			      }
+			}
+
+			$(document).ready(function () {
+				daytime();
+
+				$('[data-toggle="tooltip"]').tooltip()
+
+				$('.add-favorite').click(function () {
+					$(this).toggleClass('active').tooltip('hide');
+					return false;
+				})
+			});
+
+    </script>
+</head>
+
+<body class="tvd">
+
+
+<!-- <div class="site-header" role="banner">
+<div class="container">
+
+<a href="/" class="site-header__logo">
+		Dhasm
+</a>
+
+</div>
+</div> -->
+
+    <div class="main" id="main" role="main">
+
+
+  
+
+      {{ content }}
+    </div>
+
+
+    
+<div class="modal" id="sampleModal" tabindex="-1">
+	<div class="modal-dialog">
+	    <div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Add New Category</h4>
+			</div>
+      		<div class="modal-body">
+      			<div class="form-group">
+					<label class="form-label">Title</label>
+					<input type="text" class="form-control">
+				</div>
+
+				<div class="form-group">
+					<label class="form-label">Parent Category</label>
+					<select class="form-control">
+						<option>-- Please Select --</option>
+						<option>Blouse</option>
+						<option>Jumpsuit</option>
+						<option>Dress</option>
+						<option>Atasan</option>
+						<option>Bawahan</option>
+						<option>Tas</option>
+					</select>
+				</div>
+
+				<h4 class="modal-subheader">SEO</h4>
+				<div class="form-group">
+					<label class="form-label">Page Title</label>
+					<input type="text" class="form-control">
+				</div>
+				<div class="form-group">
+					<label class="form-label">Meta Description</label>
+					<textarea class="form-control" rows="2"></textarea>
+				</div>
+				<div class="form-group">
+					<label class="form-label">Meta Keywords</label>
+					<textarea class="form-control" rows="2"></textarea>
+				</div>
+
+				<div class="form-group">
+					<label class="form-label">Publish</label>
+					<div class="form-input">
+						<div class="radio radio--inline">
+							<label>
+								<input type="radio" name="n">
+								<span>Yes</span>
+							</label>
+						</div>
+						<div class="radio radio--inline">
+							<label>
+								<input type="radio" name="n">
+								<span>No</span>
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="modal-footer">
+				<button type="button" class="btn btn--default" data-dismiss="modal">Cancel</button>
+				<button type="button" class="btn btn--red">Save</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 
+<footer id="site-footer" class="site-footer">
+	<div class="container">
+		<div class="pull-left">
+			<div class="site-footer__credit">
+				Copyright &copy; 2015, All rights reserved
+				<br>
+				Sale Stock BI &mdash; by <a href="http://salestock.io" target="_blank">Tim Dev</a>
+			</div>
+		</div>
+		<div calss="pull-rght">
+			<div class="site-footer__status">
+				Server response time: 0.3ms<br><a href="#">Status page</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="monster">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="94.052" height="32"><path d="M72.236 46.576c-25.573 0-46.377 23.512-46.377 52.417 0 .338.076.666.097 1.004h31.23c.024-.338.1-.663.1-1.004 0-11.374 6.848-20.985 14.946-20.985 8.106 0 14.945 9.61 14.945 20.985 0 .338.073.666.098 1.004h31.23c.02-.338.097-.663.097-1.004 0-28.908-20.8-52.417-46.374-52.417zm-85.624 17.012c-19.397 0-35.174 15.783-35.174 35.18 0 .418.092.814.123 1.23h27.308c.037-.42.123-.815.123-1.23 0-4.206 3.422-7.62 7.622-7.62 4.2 0 7.622 3.417 7.622 7.62 0 .418.086.814.123 1.23h27.31c.037-.42.123-.815.123-1.23 0-19.394-15.783-35.18-35.178-35.18zm209.06-50.2C192.556 4.505 184.315 0 171.17 0c-31.302 0-48.64 52.86-48.64 97.2 0 .958.24 1.885.616 2.794h42.185c.16-.912.276-1.843.276-2.794 0-11.577-.646-26.408-.77-39.778-.11-12.645.247-23.99 2.09-30 2.29.87 4.667 3.162 7.513 5.19 3.593 2.578 7.935 4.743 13.77 3.11 8.953-2.497 10.188-14.568 7.46-22.334zM-52.534 95.756c-12.608-54.61-23.982-54.61-30.062-54.61-7.928 0-14.36 1.647-14.36 9.582 0 6.003 12.582 11.137 18.44 13.284l1.65 3.44c1.075 7.06-1.182 21.377.697 32.548h24.37c-.17-1.394-.406-2.81-.738-4.244z"/></svg>
+	</div>
+</footer>
+ -->
+
+</body>
+
+</html>
