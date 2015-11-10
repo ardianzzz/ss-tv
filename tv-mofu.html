@@ -395,6 +395,7 @@ var chart_1 = c3.generate({
         y: {
             show: true,
             tick: {
+
                 format: d3.format("s")
             }
         }
@@ -553,9 +554,9 @@ $(".gridster ul").gridster({
     widget_margins: [0, 0],
     widget_base_dimensions: [w2, h2],
     resize: {
-        enabled: false
+        enabled: true
     }
-}).data('gridster').disable();
+}).data('gridster');
 
 $(window).resize(function() {
     location.reload();
